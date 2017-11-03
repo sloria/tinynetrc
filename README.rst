@@ -2,6 +2,10 @@
 tinynetrc
 *********
 
+.. image:: https://badge.fury.io/py/tinynetrc.svg
+    :target: http://badge.fury.io/py/tinynetrc
+    :alt: Latest version
+
 .. image:: https://travis-ci.org/sloria/tinynetrc.svg?branch=master
     :target: https://travis-ci.org/sloria/tinynetrc
     :alt: Travis-CI
@@ -19,6 +23,15 @@ improvements:
 * Parses .netrc into dictionary values rather than tuples.
 
 \*This bug is fixed in Python 3.7 but still exists in older versions.
+
+Get it now
+==========
+::
+
+    pip install tinynetrc
+
+
+``tinynetrc`` supports Python >= 2.7 or >= 3.4.
 
 Usage
 =====
