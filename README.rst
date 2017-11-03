@@ -2,6 +2,10 @@
 tinynetrc
 *********
 
+.. image:: https://travis-ci.org/sloria/tinynetrc.svg?branch=master
+    :target: https://travis-ci.org/sloria/tinynetrc
+    :alt: Travis-CI
+
 Read and write .netrc files in Python.
 
 
