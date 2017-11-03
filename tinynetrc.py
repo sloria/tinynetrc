@@ -4,7 +4,7 @@ import os
 from collections import defaultdict
 import netrc
 
-__version__ = '0.0.1'
+__version__ = '1.0.0'
 
 
 def dictify_hosts(hosts):
