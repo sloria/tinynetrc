@@ -1,0 +1,6 @@
+include *.rst
+recursive-include tests *
+recursive-exclude tests *.pyc
+recursive-exclude tests *.pyo
+recursive-exclude examples *.pyc
+recursive-exclude examples *.pyo
