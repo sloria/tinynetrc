@@ -1,0 +1,4 @@
+machine mail.google.com
+    login joe@gmail.com
+    account justagmail
+    password somethingSecret
