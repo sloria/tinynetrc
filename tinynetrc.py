@@ -49,8 +49,12 @@ class Netrc(object):
     def hosts(self):
         return self._netrc.hosts
 
-    # Adapted from https://github.com/python/cpython/blob/master/Lib/netrc.py
     def __repr__(self):
+        return repr(dict(self.machines))
+
+    # Adapted from https://github.com/python/cpython/blob/master/Lib/netrc.py
+    # to support Python 2
+    def format(self):
         """Dump the class data in the format of a .netrc file."""
         self._netrc.hosts = dedictify_machines(self.machines)
         rep = ""
@@ -70,4 +74,4 @@ class Netrc(object):
 
     def save(self):
         with open(self.file, 'w') as fp:
-            fp.write(repr(self))
+            fp.write(self.format())

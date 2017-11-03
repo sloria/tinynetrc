@@ -24,22 +24,22 @@ def test_machines(netrc):
 
 
 def test_machine_formatting(netrc):
-    assert 'login joe@gmail.com' in repr(netrc)
+    assert 'login joe@gmail.com' in netrc.format()
 
 
 def test_machines_can_be_modified(netrc):
     netrc.machines['mail.google.com']['password'] = 'newpassword'
-    assert 'newpassword' in repr(netrc)
+    assert 'newpassword' in netrc.format()
 
 
 def test_machines_can_be_added(netrc):
     netrc.machines['api.heroku.com']['login'] = 'joe@test.test'
     netrc.machines['api.heroku.com']['password'] = 'supersecret'
-    assert 'api.heroku.com' in repr(netrc)
-    assert 'supersecret' in repr(netrc)
+    assert 'api.heroku.com' in netrc.format()
+    assert 'supersecret' in netrc.format()
 
 
 def test_machines_can_be_removed(netrc):
-    assert 'mail.google.com' in repr(netrc)
+    assert 'mail.google.com' in netrc.format()
     del netrc.machines['mail.google.com']
-    assert 'mail.google.com' not in repr(netrc)
+    assert 'mail.google.com' not in netrc.format()
