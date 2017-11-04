@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """Read and write .netrc files."""
-import os
-from collections import defaultdict
 import netrc
+import os
+from collections import MutableMapping, defaultdict
 
 __version__ = '1.0.0'
 
@@ -30,7 +30,7 @@ def dedictify_machines(machines):
     }
 
 
-class Netrc(object):
+class Netrc(MutableMapping):
 
     def __init__(self, file=None):
         if file is None:
@@ -48,6 +48,25 @@ class Netrc(object):
     @property
     def hosts(self):
         return self._netrc.hosts
+
+    ##### dict-like interface implementation #####
+
+    def __getitem__(self, key):
+        return self.machines[key]
+
+    def __setitem__(self, key, value):
+        self.machines[key] = value
+
+    def __delitem__(self, key):
+        del self.machines[key]
+
+    def __iter__(self):
+        return iter(self.machines)
+
+    def __len__(self):
+        return len(self.machines)
+
+    #### end dict-like interface implementation #####
 
     def __repr__(self):
         return repr(dict(self.machines))

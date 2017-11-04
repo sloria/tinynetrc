@@ -23,6 +23,15 @@ def test_machines(netrc):
     assert netrc.machines['mail.google.com']['password'] == 'somethingSecret'
 
 
+def test_dict_like_behavior(netrc):
+    assert 'mail.google.com' in netrc
+    assert netrc['mail.google.com']['login'] == 'joe@gmail.com'
+    assert len(netrc) == len(netrc.machines)
+    assert list(netrc) == list(netrc.machines)
+    del netrc['mail.google.com']
+    assert 'mail.google.com' not in netrc.machines
+
+
 def test_machine_formatting(netrc):
     assert 'login joe@gmail.com' in netrc.format()
 

@@ -22,7 +22,7 @@ improvements:
   formatting a .netrc file.*
 * Parses .netrc into dictionary values rather than tuples.
 
-\*This bug is fixed in Python 3.7 but still exists in older versions.
+\*This bug is fixed in newer versions of Python.
 
 Get it now
 ==========
@@ -41,21 +41,23 @@ Usage
     from tinynetrc import Netrc
 
     netrc = Netrc()  # parse ~/.netrc
-    netrc.machines['api.heroku.com']['password']  # get auth token
+    # Get credentials
+    netrc['api.heroku.com']['login']
+    netrc['api.heroku.com']['password']
 
     # Modify an existing entry
-    netrc.machines['api.heroku.com']['password'] = 'newpassword'
+    netrc['api.heroku.com']['password'] = 'newpassword'
     netrc.save()  # writes to ~/.netrc
 
     # Add a new entry
-    netrc.machines['surge.surge.sh'] = {
+    netrc['surge.surge.sh'] = {
         'login': 'sloria1@gmail.com',
         'password': 'secret'
     }
     netrc.save()
 
     # Removing an new entry
-    del netrc.machines['surge.surge.sh']
+    del netrc['surge.surge.sh']
     netrc.save()
 
 License
