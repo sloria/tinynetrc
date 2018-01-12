@@ -7,7 +7,22 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 @pytest.fixture()
 def netrc():
-    return tinynetrc.Netrc(os.path.join(HERE, 'netrc_valid'))
+    return tinynetrc.Netrc(os.path.join(HERE, '.netrc'))
+
+
+def test_file_not_found():
+    with pytest.raises(IOError):
+        tinynetrc.Netrc('notfound')
+
+
+def test_home_unset(monkeypatch):
+    # Make "~" == the current directory
+    monkeypatch.setattr(os.path, 'expanduser', lambda path: HERE)
+    # Unset $HOME
+    monkeypatch.delenv('HOME', raising=False)
+    # No error
+    result = tinynetrc.Netrc()
+    assert 'mail.google.com' in result.hosts
 
 
 def test_hosts(netrc):

@@ -34,10 +34,7 @@ class Netrc(MutableMapping):
 
     def __init__(self, file=None):
         if file is None:
-            try:
-                file = os.path.join(os.environ['HOME'], ".netrc")
-            except KeyError:
-                raise OSError("Could not find .netrc: $HOME is not set")
+            file = os.path.join(os.path.expanduser('~'), '.netrc')
         self.file = file
         self._netrc = netrc.netrc(file)
         self.machines = dictify_hosts(self._netrc.hosts)
