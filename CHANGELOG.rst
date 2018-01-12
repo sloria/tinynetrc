@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2.0 (unreleased)
+1.2.0 (2018-01-12)
 ------------------
 
 * Don't error if ``$HOME`` is not set `#2 <https://github.com/sloria/tinynetrc/issues/2>`_.

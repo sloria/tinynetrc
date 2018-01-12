@@ -4,7 +4,7 @@ import netrc
 import os
 from collections import MutableMapping, defaultdict
 
-__version__ = '1.1.0'
+__version__ = '1.2.0'
 
 
 def dictify_hosts(hosts):
