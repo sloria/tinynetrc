@@ -31,7 +31,7 @@ Get it now
     pip install tinynetrc
 
 
-``tinynetrc`` supports Python >= 2.7 or >= 3.4.
+``tinynetrc`` supports Python >= 2.7 or >= 3.5.
 
 Usage
 =====

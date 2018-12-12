@@ -20,9 +20,6 @@ def find_version(fname):
     return version
 
 
-__version__ = find_version('tinynetrc.py')
-
-
 def read(fname):
     with open(fname) as fp:
         content = fp.read()
@@ -31,7 +28,7 @@ def read(fname):
 
 setup(
     name='tinynetrc',
-    version=__version__,
+    version=find_version('tinynetrc.py'),
     description='Read and write .netrc files.',
     long_description=read('README.rst'),
     author='Steven Loria',
@@ -47,7 +44,6 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: Implementation :: CPython',
