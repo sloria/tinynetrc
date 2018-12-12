@@ -2,6 +2,16 @@
 import re
 from setuptools import setup
 
+EXTRAS_REQUIRE = {
+    'tests': ['pytest'],
+    'lint': [
+        'flake8==3.6.0',
+    ],
+}
+EXTRAS_REQUIRE['dev'] = (
+    EXTRAS_REQUIRE['tests'] + EXTRAS_REQUIRE['lint'] + ['tox', 'konch']
+)
+
 
 def find_version(fname):
     """Attempts to find the version number in the file names fname.
@@ -35,6 +45,7 @@ setup(
     author_email='sloria1@gmail.com',
     url='https://github.com/sloria/tinynetrc',
     install_requires=[],
+    extras_require=EXTRAS_REQUIRE,
     license='MIT',
     zip_safe=False,
     keywords='netrc posix',
@@ -46,6 +57,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: Implementation :: CPython',
     ],
     py_modules=['tinynetrc'],
