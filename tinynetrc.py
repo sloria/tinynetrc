@@ -65,8 +65,19 @@ class Netrc(MutableMapping):
 
     #### end dict-like interface implementation #####
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, exc_traceback):
+        if not exc_type and self.is_dirty:
+            self.save()
+
     def __repr__(self):
         return repr(dict(self.machines))
+
+    @property
+    def is_dirty(self):
+        return self.machines != dictify_hosts(self._netrc.hosts)
 
     # Adapted from https://github.com/python/cpython/blob/master/Lib/netrc.py
     # to support Python 2

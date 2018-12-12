@@ -67,3 +67,13 @@ def test_machines_can_be_removed(netrc):
     assert 'mail.google.com' in netrc.format()
     del netrc.machines['mail.google.com']
     assert 'mail.google.com' not in netrc.format()
+
+def test_is_dirty_after_addition(netrc):
+    assert netrc.is_dirty is False
+    netrc.machines['api.heroku.com']['login'] = 'joe@test.test'
+    assert netrc.is_dirty is True
+
+def test_is_dirty_after_deletion(netrc):
+    assert netrc.is_dirty is False
+    del netrc['mail.google.com']
+    assert netrc.is_dirty is True

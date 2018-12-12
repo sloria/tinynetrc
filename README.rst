@@ -60,6 +60,18 @@ Usage
     del netrc['surge.surge.sh']
     netrc.save()
 
+
+You can also use ``Netrc`` as a context manager, which will automatically save
+``~/.netrc``.
+
+.. code-block:: python
+
+    from tinynetrc import Netrc
+    with Netrc() as netrc:
+        netrc['api.heroku.com']['password'] = 'newpassword'
+        assert netrc.is_dirty is True
+    # saved!
+
 License
 =======
 
