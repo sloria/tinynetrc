@@ -5,7 +5,7 @@ from setuptools import setup
 EXTRAS_REQUIRE = {
     'tests': ['pytest'],
     'lint': [
-        'flake8==3.6.0',
+        'flake8==3.7.1',
     ],
 }
 EXTRAS_REQUIRE['dev'] = (
