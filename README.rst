@@ -2,13 +2,13 @@
 tinynetrc
 *********
 
-.. image:: https://badge.fury.io/py/tinynetrc.svg
-    :target: http://badge.fury.io/py/tinynetrc
-    :alt: Latest version
+.. image:: https://badgen.net/pypi/v/tinynetrc
+  :alt: pypi badge
+  :target: https://pypi.org/project/tinynetrc/
 
-.. image:: https://travis-ci.org/sloria/tinynetrc.svg?branch=master
-    :target: https://travis-ci.org/sloria/tinynetrc
-    :alt: Travis-CI
+.. image:: https://badgen.net/travis/sloria/tinynetrc/master
+  :alt: travis-ci status
+  :target: https://travis-ci.org/sloria/tinynetrc
 
 Read and write .netrc files in Python.
 
