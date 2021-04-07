@@ -2,7 +2,12 @@
 """Read and write .netrc files."""
 import netrc
 import os
-from collections import MutableMapping, defaultdict
+from collections import defaultdict
+
+try:
+    from collections.abc import MutableMapping
+except ImportError:
+    from collections import MutableMapping
 
 __version__ = '1.3.0'
 
