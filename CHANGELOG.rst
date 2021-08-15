@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.3.1 (unreleased)
+1.3.1 (2021-08-15)
 __________________
 
 * Address ``DeprecationWarning`` re: ``collections.abc`` on Python 3.9
