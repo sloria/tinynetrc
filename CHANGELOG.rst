@@ -1,6 +1,13 @@
 Changelog
 =========
 
+1.3.1 (unreleased)
+__________________
+
+* Address ``DeprecationWarning`` re: ``collections.abc`` on Python 3.9
+  (`#45 <https://github.com/sloria/tinynetrc/issues/45>`_).
+  Thanks `@tirkarthi <https://github.com/tirkarthi>`_ for the PR.
+
 1.3.0 (2018-12-11)
 ------------------
 
