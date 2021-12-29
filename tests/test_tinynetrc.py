@@ -15,6 +15,13 @@ def test_file_not_found():
         tinynetrc.Netrc('notfound')
 
 
+def test_file_not_found_create(tmp_path):
+    path = os.path.join(tmp_path, 'notfound')
+    with tinynetrc.Netrc(path, create=True) as netrc:
+        pass
+    assert os.path.exists(path)
+
+
 def test_home_unset(monkeypatch):
     # Make "~" == the current directory
     monkeypatch.setattr(os.path, 'expanduser', lambda path: HERE)
