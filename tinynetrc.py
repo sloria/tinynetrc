@@ -96,7 +96,8 @@ class Netrc(MutableMapping):
                                                                  attrs=attrs)
             if attrs[1]:
                 rep += "\taccount {attrs[1]}\n".format(attrs=attrs)
-            rep += "\tpassword {attrs[2]}\n".format(attrs=attrs)
+            if attrs[2]:
+                rep += "\tpassword {attrs[2]}\n".format(attrs=attrs)
         for macro in self._netrc.macros.keys():
             rep += "macdef {macro}\n".format(macro=macro)
             for line in self._netrc.macros[macro]:
